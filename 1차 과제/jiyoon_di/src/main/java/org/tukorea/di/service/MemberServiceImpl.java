@@ -12,23 +12,23 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	public void modifyMember(StudentVO vo) throws Exception {
+	public void modifyMember(StudentVO vo) {
 		memberDAO.modify(vo);
 	}
 
-	public StudentVO readMember(String id) throws Exception {
+	public StudentVO readMember(String id) {
 		return memberDAO.read(id);
 	}
 
-	public void addMember(StudentVO student) throws Exception {
+	public void addMember(StudentVO student) {
 		memberDAO.add(student);
 	}
 
-	public List<StudentVO> readMemberList() throws Exception {
+	public List<StudentVO> readMemberList() {
 		return memberDAO.readList();
 	}
 
-	public int deleteMember(String id) throws Exception {
+	public int deleteMember(String id) {
 		return memberDAO.delete(id);
 	}
 }

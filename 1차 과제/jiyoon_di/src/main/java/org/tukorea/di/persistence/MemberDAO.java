@@ -5,13 +5,13 @@ import java.util.List;
 import org.tukorea.di.domain.StudentVO;
 
 public interface MemberDAO {
-	public void add(StudentVO student) throws Exception;
+	void add(StudentVO student);
 
-	public StudentVO read(String id) throws Exception;
+	StudentVO read(String id);
 
-	public List<StudentVO> readList() throws Exception;
+	List<StudentVO> readList();
 
-	public int delete(String id) throws Exception;
+	int delete(String id);
 	
-	public void modify(StudentVO student) throws Exception;
+	void modify(StudentVO student);
 }

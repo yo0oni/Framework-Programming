@@ -5,13 +5,13 @@ import java.util.List;
 import org.tukorea.di.domain.StudentVO;
 
 public interface MemberService {
-	public StudentVO readMember(String id) throws Exception;
+	StudentVO readMember(String id);
 
-	public void addMember(StudentVO student) throws Exception;
+	void addMember(StudentVO student);
 	
-	public int deleteMember(String id) throws Exception;
+	int deleteMember(String id);
 
-	public List<StudentVO> readMemberList() throws Exception;
+	List<StudentVO> readMemberList();
 
-	public void modifyMember(StudentVO vo) throws Exception;
+	void modifyMember(StudentVO vo);
 }
