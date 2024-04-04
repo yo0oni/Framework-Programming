@@ -18,7 +18,6 @@ public class MemberSampleMain {
 		ctx = new GenericXmlApplicationContext("applicationContext.xml");
 
 		while (true) {
-			@SuppressWarnings("resource")
 			Scanner scan = new Scanner(System.in);
 			System.out.println("----------------------------------------");
 			System.out.println();
@@ -76,7 +75,6 @@ public class MemberSampleMain {
 
 		System.out.print(" 학생 아이디 입력 >> ");
 		try {
-			@SuppressWarnings("resource")
 			Scanner scan = new Scanner(System.in);
 			String id = scan.next();
 
@@ -133,7 +131,6 @@ public class MemberSampleMain {
 
 		System.out.print(" 학생 아이디 입력 >> ");
 		try {
-			@SuppressWarnings("resource")
 			Scanner scan = new Scanner(System.in);
 			String id = scan.next();
 
@@ -154,7 +151,6 @@ public class MemberSampleMain {
 		JdbcTemplate jdbcTemplate = ctx.getBean(JdbcTemplate.class);
 
 		try {
-			@SuppressWarnings("resource")
 			Scanner scan = new Scanner(System.in);
 
 			System.out.print(" id       >> ");
@@ -213,7 +209,6 @@ public class MemberSampleMain {
 		System.out.print(" 학생 아이디 입력 >> ");
 
 		try {
-			@SuppressWarnings("resource")
 			Scanner scan = new Scanner(System.in);
 			String id = scan.next();
 
