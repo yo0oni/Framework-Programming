@@ -7,6 +7,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.tukorea.di.domain.StudentVO;
 import org.tukorea.di.service.MemberService;
+import org.tukorea.di.view.InputView;
 import org.tukorea.di.view.OutputView;
 
 import java.util.List;
@@ -17,16 +18,17 @@ public class MemberManageController {
     private final JdbcTemplate jdbcTemplate = ctx.getBean(JdbcTemplate.class);
     private final MemberService memberService = ctx.getBean(MemberService.class);
     private final OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
 
     public void start() {
         while (true) {
-            Scanner scan = new Scanner(System.in);
             outputView.printSystemBanner();
 
             try {
-                int sel = Integer.parseInt(scan.nextLine());
-                System.out.println("----------------------------------------");
-                switch (sel) {
+                int selectedNumber = inputView.readSelectedNumber();
+                outputView.printLine();
+
+                switch (selectedNumber) {
                     case 1:
                         printStudentInformationList();
                         continue;
@@ -43,16 +45,16 @@ public class MemberManageController {
                         modifyStudentInformation();
                         continue;
                     case 9:
-                        System.out.println("안녕히 가세요.");
+                        outputView.printBye();
                         return;
                     default:
                         throw new IllegalArgumentException();
                 }
             } catch (NumberFormatException e) {
-                System.out.println("----------------------------------------");
-                System.out.println("[Error] 잘못된 입력입니다. 숫자를 입력해 주세요.");
+                outputView.printLine();
+                outputView.printException(e);
             } catch (IllegalArgumentException e) {
-                System.out.println("[Error] 잘못된 번호입니다. 다시 입력해 주세요.");
+                outputView.printException(e);
             }
         }
     }
