@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="org.tukorea.free.mapper.ScheduleMapper">
+
+
+	<select id="selectAll" resultMap="ScheduleVOResultMap">
+		SELECT id, date, detail,
+		user_id FROM schedule_free
+	</select>
+
+	<select id="select" resultMap="ScheduleVOResultMap"
+		parameterType="int">
+		SELECT
+		id, date, detail, user_id FROM schedule_free WHERE
+		id = #{id}
+	</select>
+
+	<resultMap id="ScheduleVOResultMap"
+		type="org.tukorea.free.domain.ScheduleVO">
+
+		<result property="id" column="id" />
+
+		<result property="date" column="date" />
+
+		<result property="detail" column="detail" />
+
+		<result property="userId" column="user_id" />
+
+	</resultMap>
+
+	<select id="selectMy" resultMap="ScheduleVOResultMap"
+		parameterType="String">
+		SELECT
+		id, date, detail, user_id FROM schedule_free WHERE
+		user_id = #{userId}
+	</select>
+
+	<insert id="insertSchedule" parameterType="ScheduleVO"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+		schedule_free (date,
+		detail, user_id)
+		VALUES (#{date}, #{detail}, #{userId})
+	</insert>
+
+	<delete id="delete" parameterType="int">
+		delete from schedule_free
+		where id = #{id}
+	</delete>
+	
+	<update id="update">
+		update schedule_free set id =#{id}, date =#{date}, detail =#{detail}
+		where id = #{id}
+	</update>
+
+</mapper>

@@ -1,0 +1,52 @@
+* {
+	font: bold 15pt helvetica, arial, sans-serif;
+	margin: 0;
+}
+
+.div {
+	width: 500px;
+	margin: 20px auto;
+}
+
+body {
+	margih-top: 50px;
+}
+
+/* list styles */
+ol {
+	list-style: none;
+	color: #ccc;
+}
+
+ol li {
+	font: 24pt helvetica, arial, sans-serif;
+	position: relative;
+	list-style-type: none;
+}
+
+li p {
+	font: 12pt helvetica, arial, sans-serif;
+	color: #555;
+	padding-left: 60px;
+	list-style-type: none;
+}
+
+ol {
+	margin-left: 5px;
+}
+
+span {
+	position: absolute;
+	line-height: 25px;
+}
+
+.input {
+	width: 300px;
+	height: 30px;
+	font-size: 16px;
+}
+
+.button {
+	text-align: center;
+	margin: auto;
+}
